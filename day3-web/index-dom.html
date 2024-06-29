@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+    </head>
+
+    <body>
+        <h1 id="judul-halaman">Ini adalah judul 1</h1>
+        <h2 id="judul-halaman">Ini adalah judul 2</h1>
+        <h2 id="judul-halaman">Ini adalah judul 3</h1>
+        <p class="paragraf-class">Ini adalah paragraf class</p>
+        <p id="paragraf">Ini adalah paragraf</p>
+        <button onclick="change_judul_style()">Click Me!</button>
+        <button onmouseover="change_judul_style()" onmouseleave="revert_change_judul_style()">Hover Me!</button>
+    </body>
+
+    <script>
+        var judul = document.getElementById('judul-halaman')
+        var paragraf = document.getElementsByClassName('paragraf-class')
+
+        // console.log(judul);
+        // console.log(paragraf);
+
+        judul.innerHTML = "Judul hasil modif"
+        // judul.style.color = "red"
+
+        // what if we add another element with the same id
+        // and we'd like to query them all?
+        var all_judul = document.querySelectorAll('#judul-halaman')
+        // console.log(all_judul);
+        // all_judul[1].style.color = "green"
+
+        // function change_judul_style(){
+        //     all_judul.style.fontSize = "50"
+        //     all_judul.style.backgroundColor = "black"
+        //     all_judul.style.color = "white"
+        // }
+
+        function change_judul_style(){
+            all_judul.forEach((juduls) => {
+                juduls.style.color = "green"
+            })
+        }
+
+        function revert_change_judul_style(){
+            all_judul.forEach((juduls) => {
+                juduls.style.color = ""
+            })
+        }
+    </script>
+</html>
